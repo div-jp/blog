@@ -1,0 +1,278 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>makrj.shがあまりにもよかった理由</title>
+  </head>
+  <body>
+    <p><a href="https://div-jp.github.io/code/">index</a></p>
+    <h1>makrj.shがあまりにもよかった理由</h1>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">makrj.shが自分の中ではかなり良くて、昔でいう「外人4コマ」みたいにガッツポーズしてるくらいなのだけれど、検索しても反響が全くなく一体どういうことなのか、私は別の世界線に存在しているのだろうか</p>
+      — div_jp (@div_jp) <a href="https://twitter.com/div_jp/status/778694459869376513">2016年9月21日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>とツイートしただけで何もしないのは示しがつかないので、どういうところが良いのか、また私がどのように使っているのかを事例をあげつつ需要を無視して紹介していこうと思います。</p>
+    <p>これから使ってみたいなと興味がある方の知識の足しになってもらい、POSIX原理主義もシェルスクリプトも、少しでも広まってくれればいいなと思います。</p>
+    <p>このドキュメントの内容全ては、あくまでも私がこうして使っていますがどうですか？という<strong>提案</strong>なのでこれが絶対だ、というわけではありません。ご了承ください。</p>
+    <p>makrj.shやJSONPath-value形式の元ネタはここから勝手にいただきました。 <br><a href="http://qiita.com/richmikan@github/items/0dc3330163c86b249bcd" class="uri">http://qiita.com/richmikan@github/items/0dc3330163c86b249bcd</a></p>
+    <p>完全に二番煎じなので元ネタの方が理解できた方はこの先は読む必要はないのでブラウザを閉じてください。</p>
+    <p>製作してくれた作者様に感謝。</p>
+    <p>ザックリ言うとmakrj.shはJSONPath-value形式で保存されたデータをJSON形式に変換するスクリプトです。</p>
+    <h2>JSONPath-value形式＝データベース？</h2>
+    <p>JSONPath-value形式の一般的な使われ方は、データベースだと私は思います。ウェブ関係でデータベースといえばSQLというのが主流で、データをゴチャゴチャするというのが最初に思いつきますが、まずはよく使われるお小遣い帳を例にとってJSONPath-value形式の紹介をしてみたいと思います。</p>
+    <h3>表計算形式</h3>
+    <p>お小遣い帳 (../DATA/okodukai_sheet.csv)</p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: left;">No</th>
+          <th style="text-align: left;">日</th>
+          <th style="text-align: left;">科目</th>
+          <th style="text-align: left;">用途</th>
+          <th style="text-align: left;">入金</th>
+          <th style="text-align: right;">出金</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: left;">1</td>
+          <td style="text-align: left;">10</td>
+          <td style="text-align: left;">食費</td>
+          <td style="text-align: left;">オーソンの弁当</td>
+          <td style="text-align: left;"><br>
+          </td>
+          <td style="text-align: right;">550</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left;">2</td>
+          <td style="text-align: left;">24</td>
+          <td style="text-align: left;">光熱費</td>
+          <td style="text-align: left;">水道代</td>
+          <td style="text-align: left;"><br>
+          </td>
+          <td style="text-align: right;">900</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left;">3</td>
+          <td style="text-align: left;">25</td>
+          <td style="text-align: left;">光熱費</td>
+          <td style="text-align: left;">ガス代</td>
+          <td style="text-align: left;"><br>
+          </td>
+          <td style="text-align: right;">1000</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left;">4</td>
+          <td style="text-align: left;">25</td>
+          <td style="text-align: left;">家賃</td>
+          <td style="text-align: left;">1月分</td>
+          <td style="text-align: left;"><br>
+          </td>
+          <td style="text-align: right;">70000</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left;">5</td>
+          <td style="text-align: left;">27</td>
+          <td style="text-align: left;">光熱費</td>
+          <td style="text-align: left;">電気代</td>
+          <td style="text-align: left;"><br>
+          </td>
+          <td style="text-align: right;">11200</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left;">6</td>
+          <td style="text-align: left;">31</td>
+          <td style="text-align: left;">通信費</td>
+          <td style="text-align: left;">プロバイダ</td>
+          <td style="text-align: left;"><br>
+          </td>
+          <td style="text-align: right;">8000</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: left;">7</td>
+          <td style="text-align: left;">31</td>
+          <td style="text-align: left;">給与</td>
+          <td style="text-align: left;">1月分</td>
+          <td style="text-align: left;">250000</td>
+          <td style="text-align: right;"><br>
+          </td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: left;">8</td>
+          <td style="text-align: left;">31</td>
+          <td style="text-align: left;">通信費</td>
+          <td style="text-align: left;">NTT基本料金</td>
+          <td style="text-align: left;"><br>
+          </td>
+          <td style="text-align: right;">1700</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>一般的なお小遣い帳は細かい差はあるでしょうが、大体この表のようなイメージだと思います。これをノートだったりエクセルだったりと記入しているはずです。そしてこれをJSONPath-value形式に変換するとこうなります。</p>
+    <h3>JSONPath-value形式</h3>
+    <p>JSONPath-value形式 (../DATA/okodukai_value形式.txt)</p>
+    <pre><code>$.1.日 10
+$.1.科目 食費
+$.1.用途 オーソン弁当
+$.1.出金 550
+$.2.日 24
+$.2.科目 光熱費
+$.2.用途 水道代
+$.2.出金 900
+$.3.日 25
+$.3.科目 光熱費
+$.3.用途 ガス代
+$.3.出金 1000
+$.4.日 25
+$.4.科目 家賃
+$.4.用途 1月分
+$.4.出金 70000
+$.5.日 27
+$.5.科目 光熱費
+$.5.用途 電気代
+$.5.出金 11200
+$.6.日 31
+$.6.科目 通信費
+$.6.用途 プロバイダ
+$.6.出金 8000
+$.7.日 31
+$.7.科目 給与
+$.7.用途 1月分
+$.7.入金 250000
+$.8.日 31
+$.8.科目 通信費
+$.8.用途 NTT基本料金
+$.8.出金 1700</code></pre>
+    <p>一文字目の「$.…」はわからないけれども、よく見るとちゃんと金額も数字がありますし、通信費だったり家賃だったりとしっかり書いてある様子ですね。</p>
+    <p>JSONPath-value形式は、一定の規則に従って並び替えられたものになるので、内容が増えたり減ったりするものではありません。</p>
+    <p>ではどのように並び替えられたのかというと、公式のページ（英語）　<a href="http://goessner.net/articles/JsonPath/" class="uri">http://goessner.net/articles/JsonPath/</a> に書いてあるので読んでみてください。</p>
+    <p>英語ができないので、google翻訳こんにゃくを使って分かったことは、</p>
+    <ul>
+      <li>XML文書からデータを抽出するために考えられたらしい。</li>
+      <li>$はルートオブジェクトを指しているらしい。</li>
+      <li>.はカレントオブジェクトを指しているらしい。</li>
+      <li>[]は繰り返し載せたい場合に使う？みたいだ。よくわからない。</li>
+      <li>*はワイルドカードといって、すべての名前を表しているらしい。</li>
+      <li>JSONPath列と値列の間は半角空白1つ空けるルールで、例えば1行目の「$.1.日 10」というのは、「$.1.日」がJSONPath列で、必ず半角の空白を挟んだとなりの「10」が値部という構造になっているようだ。</li>
+    </ul>
+    <p>といったところでしょうか。</p>
+    <p>例えば表形式(お小遣い帳)一行目の</p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: left;">No</th>
+          <th style="text-align: left;">日</th>
+          <th style="text-align: left;">科目</th>
+          <th style="text-align: left;">用途</th>
+          <th style="text-align: left;">入金</th>
+          <th style="text-align: right;">出金</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: left;">1</td>
+          <td style="text-align: left;">10</td>
+          <td style="text-align: left;">食費</td>
+          <td style="text-align: left;">オーソンの弁当</td>
+          <td style="text-align: left;"><br>
+          </td>
+          <td style="text-align: right;">550</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>このデータを表すにはエクセルなら(A2:F2)だけれども、JSONPath-value形式の場合では「$.1.*」と書くことができ、</p>
+    <p>また、全ての出金データが知りたい場合は「$.*.出金」と表すことができる、ということらしい。もしエクセルなら(F2:F9)ですね。</p>
+    <p>こうやって同じ情報を、違う方法で表現することができるんだ、ということがわかって頂けたかと思います。</p>
+    <p>つまり、エクセルのような行と列で構成されていたデータが、JSONPath-value形式では1セルを1行単位で表すことができるということなんです、素晴らしい！</p>
+    <p>私はこのことを知り、データベースはSQLやエクセルだけのものじゃねーぞと言われたような気がして、衝撃が走り、カルチャーショックを受けました。こういう方法もあるんだと。常識が否定された感じでしたね。皆さんはいかがでしょうか？</p>
+    <h3>JSON形式</h3>
+    <p>そして冒頭のツイートに戻りますが、なぜ私がガッツポーズをしたのかというと、makrj.shというスクリプトが登場したからです。</p>
+    <p>makrj.shはJSONPath-value形式をJSON形式に変換するスクリプトで、JSON形式というのは、JSON (JavaScript Object Notation)の略で、これもデータ交換フォーマットで、やはり簡易のデータベースとして利用されています。</p>
+    <p>具体的にはこういう形式になります。お小遣い帳のデータを使って変換しました。</p>
+    <p>JSON形式(../DATA/okodukai_json.json)</p>
+    <pre><code>{
+    "1": {
+        "出金": 550,
+        "用途": "オーソン弁当",
+        "科目": "食費",
+        "日": 10
+    },
+    "2": {
+        "出金": 900,
+        "用途": "水道代",
+        "科目": "光熱費",
+        "日": 24
+    },
+    "3": {
+        "出金": 1000,
+        "用途": "ガス代",
+        "科目": "光熱費",
+        "日": 25
+    },
+    "4": {
+        "出金": 70000,
+        "用途": "1月分",
+        "科目": "家賃",
+        "日": 25
+    },
+    "5": {
+        "出金": 11200,
+        "用途": "電気代",
+        "科目": "光熱費",
+        "日": 27
+    },
+    "6": {
+        "出金": 8000,
+        "用途": "プロバイダ",
+        "科目": "通信費",
+        "日": 31
+    },
+    "7": {
+        "入金": 250000,
+        "用途": "1月分",
+        "科目": "給与",
+        "日": 31
+    },
+    "8": {
+        "出金": 1700,
+        "用途": "NTT基本料金",
+        "科目": "通信費",
+        "日": 31
+    }
+}</code></pre>
+    <p>JSON形式もメモ帳で手入力できるのですがこれがまぁー <em>面倒くさい</em> し、必ず入力ミスします。本当に面倒くさい。</p>
+    <p>そこへmakrj.shが発表され、一発で変換できるということがわかり、ガッツポーズをしたというのが事の顛末になります。</p>
+    <p>makrj.shの登場により、表計算形式からJSONPath-value形式、そしてJSON形式と、必要な時に自由自在に行き来することができるようになったのです。</p>
+    <p>makrj.sh <a href="https://github.com/ShellShoccar-jpn/Parsrs/blob/master/makrj.sh" class="uri">https://github.com/ShellShoccar-jpn/Parsrs/blob/master/makrj.sh</a></p>
+    <p>以上、makrj.shがあまりにもよかった理由でした。</p>
+    <h2>JSONPath-value形式用例</h2>
+    <p>私はJSONPath-value形式がデータベースとしても使えることが分かったので、いろいろなデータを、個人的なデータベースとして利用しています。</p>
+    <p>ここからは、私が利用している事例を載せていきたいと思います。あくまでも一例です。これが正しいというわけではありません。</p>
+    <p>本</p>
+    <pre><code>$.4863542097.タイトル Windows/Mac/UNIXすべてで20年動くプログラムはどう書くべきか一度書けばどこでも、ずっと使えるプログラムを待ち望んでいた人々へ贈る
+$.4863542097.出版社 シーアンドアール研究所
+$.4863542097.ページ数 336
+$.4774173444.タイトル シェルプログラミング実用テクニック
+$.4774173444.出版社 技術評論社
+$.4774173444.ページ数 416</code></pre>
+    <p>ISBN番号をキーにして、タイトル、出版社、ページ数と必要なデータを置いています。もし他にデータが必要になれば、その都度増やしていけばいいでしょう。</p>
+    <p>住所録</p>
+    <pre><code>$.1.姓 山田
+$.1.名 太郎
+$.1.郵便番号 529-0505
+$.1.住所1 滋賀県長浜市余呉町小原
+$.1.住所2 *-**-*
+$.1.電話番号 045-**-****
+$.2.姓 田中
+$.2.名 一郎
+$.2.郵便番号 915-0242
+$.2.住所1 福井県越前市粟田部町
+$.2.住所2 *-*-*
+$.2.電話番号 078-***-****</code></pre>
+    <p>これも同様です、住所1と住所2で分けていますが、わかりやすいから分けているだけで、1行にしてしまっても問題ありません。</p>
+    <p>例えばマイナンバーとかを、新たに付け足したくなったとすれば、<br>
+      「$.1.マイナンバー ＊＊＊－＊＊＊＊」と行を追加すればいいだけです。</p>
+  <p><a href="https://div-jp.github.io/code/">index</a></p>
+  </body>
+</html>

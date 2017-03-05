@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mystyle.css">
+<title>makrj.shがあまりにもよかったのでスクリプトを作りました。</title>
+</head>
+<body>
+<p><a href="https://div-jp.github.io/code/">index</a></p>
+<h2>makrj.shがあまりにもよかったのでスクリプトを作りました。</h2>
+<p>JSONPath-value形式のデータを操作する時の負担を減らす目的のスクリプトを作ってみました。</p>
+<h3>jsonPath_tab.sh</h3>
+<p><a href="https://github.com/div-jp/code/blob/master/jsonPath/jsonPath_tab.sh">https://github.com/div-jp/code/blob/master/jsonPath/jsonPath_tab.sh</a></p>
+<p>キー部とデータ部の間の区切り文字をタブにするスクリプト。</p>
+demo
+<ul>
+<li>$ cat ../DATA/data1.txt | sh jsonPath_tab.sh</li>
+</ul>
+<p>before</p>
+<pre><code>$.会員名 文具 太郎
+$.会員名 山田 太郎
+$.購入品[0] はさみ
+$.購入品[1] ノート(A4,無地)
+$.購入品[2] シャープペンシル
+$.購入品[3].取寄商品 替え芯
+$.購入品[4] クリアファイル
+$.購入品[4] のり
+$.購入品[5].取寄商品 6穴パンチ
+$.購入 文字文字
+$.購入 あいうえお</code></pre>
+<p>after</p>
+<pre><code>$.会員名   文具 太郎
+$.会員名   山田 太郎
+$.購入品[0]    はさみ
+$.購入品[1]    ノート(A4,無地)
+$.購入品[2]    シャープペンシル
+$.購入品[3].取寄商品   替え芯
+$.購入品[4]    クリアファイル
+$.購入品[4]    のり
+$.購入品[5].取寄商品   6穴パンチ
+$.購入    文字文字
+$.購入    あいうえお</code></pre>
+<h3>jsonPath_sort.sh</h3>
+<p><a href="https://github.com/div-jp/code/blob/master/jsonPath/jsonPath_sort.sh">https://github.com/div-jp/code/blob/master/jsonPath/jsonPath_sort.sh</a></p>
+キー列のソートをするスクリプト。
+<p>通常のsortだと[]内の数字を辞書的なソートをするので新しくつくりました。</p>
+demo
+<ul>
+<li>$ cat ../DATA/data1.txt | sh jsonPath_sort.sh</li>
+</ul>
+<p>before</p>
+<pre><code>$.会員名 文具 太郎
+$.会員名 山田 太郎
+$.購入品[0] はさみ
+$.購入品[1] ノート(A4,無地)
+$.購入品[2] シャープペンシル
+$.購入品[3].取寄商品 替え芯
+$.購入品[4] クリアファイル
+$.購入品[4] のり
+$.購入品[5].取寄商品 6穴パンチ
+$.購入 文字文字
+$.購入 あいうえお</code></pre>
+<p>after</p>
+<pre><code>$.会員名 山田 太郎
+$.会員名 文具 太郎
+$.購入 あいうえお
+$.購入 文字文字
+$.購入品[0] はさみ
+$.購入品[1] ノート(A4,無地)
+$.購入品[2] シャープペンシル
+$.購入品[3].取寄商品 替え芯
+$.購入品[4] のり
+$.購入品[4] クリアファイル
+$.購入品[5].取寄商品 6穴パンチ</code></pre>
+<h3>jsonPath_bracket.sh</h3>
+<p><a href="https://github.com/div-jp/code/blob/master/jsonPath/jsonPath_bracket.sh">https://github.com/div-jp/code/blob/master/jsonPath/jsonPath_bracket.sh</a></p>
+キー列の重複があるときブラケット&quot;[]&quot;を付加するスクリプト。
+ブラケットの扱いにまだまだ改良の余地ありです。
+<p>取りこぼしもあって中途半端なつくりになってしまった。</p>
+demo
+<ul>
+<li>$ cat ../DATA/data1.txt | sh jsonPath_bracket.sh</li>
+</ul>
+<p>before</p>
+<pre><code>$.会員名 文具 太郎
+$.会員名 山田 太郎
+$.購入品[0] はさみ
+$.購入品[1] ノート(A4,無地)
+$.購入品[2] シャープペンシル
+$.購入品[3].取寄商品 替え芯
+$.購入品[4] クリアファイル
+$.購入品[4] のり
+$.購入品[5].取寄商品 6穴パンチ
+$.購入 文字文字
+$.購入 あいうえお</code></pre>
+<p>after</p>
+<pre><code>$.会員名[1] 文具 太郎
+$.会員名[2] 山田 太郎
+$.購入品[0] はさみ
+$.購入品[1] ノート(A4,無地)
+$.購入品[2] シャープペンシル
+$.購入品[3].取寄商品 替え芯
+$.購入品[4] クリアファイル
+$.購入品[4] のり
+$.購入品[5].取寄商品 6穴パンチ
+$.購入[1] 文字文字
+$.購入[2] あいうえお</code></pre>
+<h3>jsonPath_update.sh</h3>
+<p><a href="https://github.com/div-jp/code/blob/master/jsonPath/jsonPath_update.sh">https://github.com/div-jp/code/blob/master/jsonPath/jsonPath_update.sh</a></p>
+トランザクションから来たキー部を元に比較してデータ部を置き換える、SQLのUPDATEのような動きをするスクリプト。
+<p>パイプまたは第一引数はmasterのデータを、第二引数はtranのデータを渡してください。</p>
+demo
+<ul>
+<li>$ cat ../DATA/data1.txt | sh jsonPath_update.sh ../DATA/data2.txt</li>
+<li>$ sh jsonPath_update.sh ../DATA/data1.txt ../DATA/data2.txt</li>
+</ul>
+<p>before</p>
+<pre><code>master
+$.会員名 文具 太郎
+$.会員名 山田 太郎
+$.購入品[0] はさみ
+$.購入品[1] ノート(A4,無地)
+$.購入品[2] シャープペンシル
+$.購入品[3].取寄商品 替え芯
+$.購入品[4] クリアファイル
+$.購入品[4] のり
+$.購入品[5].取寄商品 6穴パンチ
+$.購入 文字文字
+$.購入 あいうえお
+
+tran
+$.購入品[3].取寄商品 置き換え2
+$.購入品[5].取寄商品 置き換え3
+$.ダミーデータ ダミー1
+$.購入品[0] 置き換え1</code></pre>
+<p>after</p>
+<pre><code>$.会員名 山田 太郎
+$.会員名 文具 太郎
+$.購入 あいうえお
+$.購入 文字文字
+$.購入品[0] 置き換え1
+$.購入品[1] ノート(A4,無地)
+$.購入品[2] シャープペンシル
+$.購入品[3].取寄商品 置き換え2
+$.購入品[4] のり
+$.購入品[4] クリアファイル
+$.購入品[5].取寄商品 置き換え3</code></pre>
+<h3>jsonPath_checkupdate.sh</h3>
+<p><a href="https://github.com/div-jp/code/blob/master/jsonPath/jsonPath_checkupdate.sh">https://github.com/div-jp/code/blob/master/jsonPath/jsonPath_checkupdate.sh</a></p>
+<p>UPDATEされない行を表示するスクリプト。</p>
+demo
+<ul>
+<li>$ cat ../DATA/data1.txt | sh jsonPath_checkupdate.sh ../DATA/data2.txt</li>
+<li>$ sh jsonPath_checkupdate.sh ../DATA/data1.txt ../DATA/data2.txt</li>
+</ul>
+<p>before</p>
+<pre><code>master
+$.会員名 文具 太郎
+$.会員名 山田 太郎
+$.購入品[0] はさみ
+$.購入品[1] ノート(A4,無地)
+$.購入品[2] シャープペンシル
+$.購入品[3].取寄商品 替え芯
+$.購入品[4] クリアファイル
+$.購入品[4] のり
+$.購入品[5].取寄商品 6穴パンチ
+$.購入 文字文字
+$.購入 あいうえお
+
+tran
+$.購入品[3].取寄商品 置き換え2
+$.購入品[5].取寄商品 置き換え3
+$.ダミーデータ ダミー1
+$.購入品[0] 置き換え1</code></pre>
+<p>after</p>
+<pre><code>$.ダミーデータ ダミー1
+がUPDATEされません。</code></pre>
+<p><a href="https://div-jp.github.io/code/">index</a></p>
+</body>
+</html>

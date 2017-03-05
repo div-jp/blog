@@ -1,0 +1,77 @@
+
+
+css組版メモ
+
+
+CSS組版、やってみたら挫折ポイントが色々あってやる気がなくなるやつでした。どうまとめるつもりなんだろうこれ。CSS組版
+
+http://vivliostyle.com/ja/products/vivliostyle-formatter/release-notes/2016.1/
+
+
+https://www.pagedmedia.org/making-book-with-html-css-a-look-at-vivliostyle-part-1-page-layouts/
+
+フォーマットに使えるかもしれないメモ
+
+@page要素は全体のページサイズになる
+A4
+B3
+http://www.libroworks.co.jp/vstest/sample1.html
+
+@page {
+  size: 125mm 210mm;
+}
+
+
+４０文字×４０行で１６００文字です。
+行数36…フォントサイズ10.5が標準設定になっています、
+文字数は2000字は、2ページが適当です
+
+自分が見ているページそのままを印刷するためのcss設定がわからない。
+
+ font: 100 8.5pt/1.6 "Source Han Sans", "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, "ヒラギノ角ゴ Pro W3", HiraKakuPro-W3, sans-serif;
+
+'Noto Sans JP'
+	font-family:  'Noto Sans CJK JP';
+
+
+/*ページレイアウト*/
+@page{
+  size: 182mm 230mm; /*257mm;*/
+  margin-top: 15mm;
+  margin-left: 15mm;
+  margin-right: 15mm;
+  margin-bottom: 15mm;
+}
+@page :left {
+  margin-right: 10mm;
+  @bottom-left {
+    font-size: 11rem;
+    content: counter(page) ;
+    margin-bottom: 10mm;
+    writing-mode: horizontal-tb;
+
+    /* CSS仕様上は@pageルール内に書けばよいが、現時点のvivliostyle.jsの制限によりここに書く */
+  }
+}
+@page :right {
+  margin-left: 10mm;
+  /* 右下ノンブル */
+  @bottom-right {
+    font-size: 11rem;
+    content: counter(page);
+    margin-bottom:  10mm;
+    writing-mode: horizontal-tb;
+
+    /* CSS仕様上は@pageルール内に書けばよいが、現時点のvivliostyle.jsの制限によりここに書く */
+  }
+}
+
+
+/*
+  page-break-before: always;
+  page-break-after: always;
+*/
+
+
+
+

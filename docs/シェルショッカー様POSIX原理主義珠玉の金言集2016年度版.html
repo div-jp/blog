@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>シェルショッカー様 POSIX原理主義 珠玉の金言集2016年度版</title>
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mystyle.css">
+  </head>
+  <body>
+	  <p><a href="https://div-jp.github.io/code/">index</a></p>
+    <h1>シェルショッカー様 POSIX原理主義 珠玉の金言集2016年度版</h1>
+    <p>この記事は<a href="http://www.adventar.org/calendars/1787">POSIX原理主義AdventCalendar</a>の12日目です。</p>
+    <p>POSIX原理主義提唱者<a href="https://twitter.com/richmikan">@richmikan</a>様、<a href="https://twitter.com/shellshoccarjpn">@shellshoccarjpn</a>様は聖典以外にツイッター上でもPOSIX原理主義についていろいろ言及されていることが多いので、このまま埋もらせておくのはもったいない！ということでここにまとめることにしました。お二人のツイートはPOSIX原理主義のことだけではなく、その周辺の技術思想、哲学のようなものが見え隠れしています。</p>
+    <p>問題は、まとめるにしてもツイートをコピペするだけのどこにでもある、まとめサイト的なことをしてもいいのかどうかが不明。おそらく良くないと思うので、なにか問題あったら削除致しますのでその時は言ってください。</p>
+    <p>欲を言うのならば、シェルショッカー様の発言は本当は全て読んでほしいのですが、時間も限られているでしょうから、独断と偏見でピックアップしています。時系列はバラバラで、内容も偏っていると思われます。ツイートを全て読みたいという方は<a href="https://twitter.com/shellshoccarjpn">こちら</a>へ</p>
+    <p>＜おことわり＞
+      このページの内容はすべて私個人の主観によるものなので情報が正確ではありません、ご了承下さい。また誤字脱字、不快な表現があるかと思いますが、コメントで指摘していただけると助かります。</p>
+    <hr>
+    <h2>秘密結社シェルショッカー日本支部とはどんな人？</h2>
+    <p><strong><a href="https://twitter.com/shellshoccarjpn">秘密結社シェルショッカー日本支部@shellshoccarjpn</a>
+        POSIX原理主義を至上とし、エクストリームなシェルスクリプトで人間どもを洗脳し、世界征服を目論む組織。なお、このツイートはTwiiterクライアントプログラム怪人「恐怖！小鳥男」で行っている。 またキャラ設定上、二人称は基本的に「お前」である。そこで驚くなよ。</strong></p>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">ここで一度、321に代わりRichieから言っておく。<br>
+        シェル芸家元も困惑しておるし言っておくが、我々はUSP友の会とは無関係。表の組織とは直接繋がりを持たぬから秘密結社なのだ。組織の全容は誰も知らぬ。今漏れ聞こえているのはかつての私の姿だけ。私もかつての私ではないぞ。ハッハッハ</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/714111265799405568">2016年3月27日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>他の組織とは無関係だそうです。</p>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">Q:シェルショッカーの資金源は？ A:我々が造ったショッピングカート怪人（"SHELLscript SHOpping CARt"という我々の語源でもある）を送り込んだ通販サイトからの上納金だ。言っておくがサイトは全く普通を装って世間に溶け込んでおるから判別不可能だ。ワッハッハ！</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/705507878828769280">2016年3月3日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>主な収入は出版物を販売した売上みたいです。作家さんなのでしょうか？</p>
+    <hr>
+    <h2>シェル芸とよく混同されることについて</h2>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">我らのPOSIX原理主義に感銘を受け「シェル芸凄いですね！」と称える者もいるが、違うぞ。シェル芸は、私が知る限りシェルスクリプトではい。スクリプト化せずシェルだけを使ったワンライナー芸だ。シェルスクリプトを使うなら「シェルスクリプト芸」と称さねば煩い者達の攻撃の的だろうしな。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/714111296703041536">2016年3月27日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>POSIX原理主義はシェル芸とも違うのだそうです。</p>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">シェル芸とPOSIX原理主義を区別できん者が多いから教えてやるがな、全く思想が違う。シェル芸は常にその時環境にあるコマンドを総動員して課題を撃破する。その場限りのワンライナー作成力を磨き持続性への配慮を不要にする。対してPOSIX原理主義はPOSIX準拠により持続性を最大限高める</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/761496739220066304">2016年8月5日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">シェル芸もPOSIX原理主義も、単なるメソッドとして片付けようとする者には一生使いこなせん。どちらもメソッドなどという次元ものもではない、「考え方」だ。シェル芸でもPOSIX原理主義でも、批判する者たちをよく観察してみるがいい。考え方が潜んでいる事に気づかぬ無能っぷりがよくわかる</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/761500134823768064">2016年8月5日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>考え方からして違うから別なんだそうです。</p>
+    <hr>
+    <h2>POSIX原理主義が生み出された経緯</h2>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja">.<a href="https://twitter.com/ChihiroShiiji">@ChihiroShiiji</a> <a href="https://twitter.com/torgtaitai">@torgtaitai</a> そうだ。我らは栄枯盛衰激しきソフトに散々泣かされてきたプログラマーの集まりだ。苦しみぬいた末に辿り着いたのがその教義というわけだ。そして資金集めかつ密かに侵略を進めるため、表世界の業務案件もひっそりこなしておる。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/712892007685824512">2016年3月24日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja"><a href="https://twitter.com/piro_or">@piro_or</a> ゆえに、POSIX原理主義は宗教ではない。現場で泣かされたプログラマーが生み出したのだ。敢えて言うなら、感じる必要性の程度に人それぞれ差があるだけだ。そうでなければ、保険も災害対策も、していない者たちから言わせれば皆宗教ということになる。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/712118374063452160">2016年3月22日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja"><a href="https://twitter.com/piro_or">@piro_or</a> サーバーなど、いつ吹っ飛ぶか、いつ内部犯に破壊されるか、いつ外部犯にクラックされるか、いつ運営資金が尽きるかわからん。我々は、そういった様々な「想定外」に泣かされてきた。故に厳しいのだ。反対に想定外を軽視してエネルギープラントを吹っ飛ばした国家・企業もあったな。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/712115786437906432">2016年3月22日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>今まで現場で泣かされてきたプログラマたちの経験から生まれたということでしょうか。だから交換可能性を重視するというのも頷けますし、シェル芸とは別というのもわかる気がします。</p>
+    <hr>
+    <h2>POSIX原理主義の本質とは</h2>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">POSIX原理主義の本質とは「交換可能性」だ。1つの実装に依存できなくなった時でも他の実装に交換するだけで動くようにプログラムを書くから、そのプログラムは生き延びる。交換可能性が本質ゆえ我々は、webにはcurlやwget、メールにはsendmailも使う。交換可能性を担保してな</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/797437359021166592">2016年11月12日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p><strong>POSIX原理主義の本質は交換可能性。</strong></p>
+    <hr>
+    <h2>POSIX原理主義とは</h2>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja">.<a href="https://twitter.com/piro_or">@piro_or</a> POSIX原理主義とは「よいプロダクトこそがよい成果を齎す」という物質主義に染まった現代プログラミングに抗う思想。「成果の良悪はプロダクト使用者の賢さに依る」と戒め、思考の鍛錬を諭し、よく鍛えた者にはPOSIXこそ必要十分のプロダクトと説く <a href="https://twitter.com/hashtag/posixism?src=hash">#posixism</a></p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/802193310173401088">2016年11月25日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja">.<a href="https://twitter.com/BRAVEMANLBRID">@BRAVEMANLBRID</a> POSIX原理主義はサバイバル術。なぜテキストに拘るかといえば、システムや一部データが損傷してもテキストなら何とか救済できるという経験則があるからだ。バイナリだったら手も足も出ぬ。プログラムは失っても作り直せるがデータはそれができん。データは貴重だ</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/803097283059281920">2016年11月28日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">よくわからんが「原理主義」に対して回答してやる。<br>
+        目先の事だけ考えたソフトウェアの高機能化・高性能化が蔓延し、今どれだけのプログラマを苦しめているか。だから抗う方法を考案した。抗うからこそ原理主義なのだ。POSIX原理主義を実践すれば、トレンドを追い続けて消耗する必要などなくなる</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/797429669465235456">2016年11月12日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">「何も考えず、ただ使うだけ上手くいく道具」それは技術者の夢で、現在の主流派たちはそれを競って発明したり探したりしている。だがな、我らに言わせばそれは幻想なのだ。「道具とは、それを使う者が特性を学び、使い方をよく考えるからこそ初めて上手くいく」、我らと主流派の争点の根本はここにある</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/799165886250688512">2016年11月17日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">POSIX原理主義の「主義」はまさに「考え方」のことだ。道具はむしろPOSIXの方だ。この区別もつかぬとは、世のプログラマーどもがいかに、良いツール、クソなツールなどと、道具至上主義で毒され、思考停止しているかがよくわかる。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/798834541473370112">2016年11月16日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">.<a href="https://twitter.com/imksoo">@imksoo</a> そのとおりだ。今あるすべてを捨てねば実践できぬものでもないのもまたPOSIX原理主義の特徴。なぜならPOSIX原理主義は道具ではなく「考え方」だからだ。徐々に実践してゆき、会得すればよいものを……。道具という固定観念の抜けぬ者たちはそこを既に見誤り、批判に走る。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/798832372632330240">2016年11月16日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>POSIX原理主義は道具ではなく考え方で、道具はむしろPOSIXの規格のほうだということらしいです。</p>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja"><a href="https://twitter.com/ShougoMatsu">@ShougoMatsu</a> それは賛同こそすれど、批判する理由はどこにもない。自分のケツは自分で拭けということは我らのPOSIX原理主義聖典の最後にも書かせた。その覚悟なしに他人の成果物に安易に依存することこそが愚かで、己を破滅へ導くのだ。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/798779924467154944">2016年11月16日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>ツールばかりに頼りすぎるといつか破滅するそうです。わかります、これはよくある話、インターネットあるあるですね。</p>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja">.<a href="https://twitter.com/BRAVEMANLBRID">@BRAVEMANLBRID</a> その二択を迫られれば当然pthreadだが、極限性能を求めぬ限りPOSIX原理主義的には基本的にシェルスクリプトで済ませる。母体であるUNIX哲学の教義がCをなるべく使わぬこととしているからだ。並列化も、パイプや&amp;を使いこなせばそこそこイケるぞ。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/798164660230815746">2016年11月14日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>POSIX原理主義を実践するために基本的にシェルスクリプトで作成するということらしい。</p>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">POSIX原理主義は、シェルスクリプトを推奨するがCやJavaScriptも認める。 だがJavaやPHP、Ruby、その他は認めん。違いがわかるか？前者は開発ベンダの異なる複数の実装があり交換可能性があるが後者にはない。しかも非互換な改訂を平気で繰り返す。 <a href="https://twitter.com/hashtag/posixism?src=hash">#posixism</a></p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/805586807903567872">2016年12月5日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>交換可能性という条件が満たされるならCでもJavaScriptでも認めると。…理論に隙が無いですね。</p>
+    <p>これでもかというほど徹底的に交換可能性にこだわっています。今の言葉でいうなら「交換可能性ファースト」ですね。</p>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">トラブルシュート不要なCMSを真面目に作るべきだな。簡単導入、高機能ばかり謳い「後の苦労は知りません」などというソフトを開発するベンダーどもの方がよっぽど悪の秘密結社ではないか。POSIX原理主義はそんな悪のソフトから解放するものだ <a href="https://t.co/lHJb04RbB7">https://t.co/lHJb04RbB7</a></p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/744461210624495616">2016年6月19日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>M○vable ○ypeなんてそんなのがありましたね。</p>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">長年動き続ける保存性、OS環境を選ばず使える可搬性、そしてコピーするだけで動く即席性。POSIX原理主義とはソフトウェアにおけるカップラーメンでありレトルトカレーだ。保存食ソフトウェアなんか美味しくないと罵倒するのは、インスタント食品にレストラン料理の味を求めるのと同じ愚かさよ！</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/755340123370250241">2016年7月19日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>長年動き続ける保存性
+      OS環境を選ばず使える可搬性
+      コピーするだけで動く即席性</p>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">災害への備えといえば保存食、当たり前だな。備えてる者も多いな。同様に依存OS、言語等のセキュリティ危機への備えといえば保存の利くソフト開発、即ちPOSIX原理主義だ。当たり前だな。何、知らんだと？だからお前たちはセキュリティアップデートのたび地獄の苦しみを味わうのだ。愚か者め。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/755337328197931009">2016年7月19日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>POSIX原理主義は即席性のある保存食のようなものであると。アップデートで動かなくなるの本当に止めて欲しいですよね。</p>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">なるほどな。「POSIX原理主義をはじめとした『枯れた技術』は、高互換性かつ長寿命という高い価値を得ようとしている。その分、学習というコストが高くつくのは当たり前。人生そんなに甘いわけないだろう」というわけか。面白い返しだな &gt; Colonel Richie</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/735435876075864064">2016年5月25日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">平時の性能ばかり重視し、非常時を甘く見た装置・設備・現場・規則の多くが、災害発生後の被害を更に大きくしてきた。我らはPOSIX原理主義の前に非常時の事を考えているに過ぎぬ。20年持たせるとはそういう事だ。幾ら笑われても非常時に泣くより遥かに賢い。リアル世界の災害対策もそうありたい</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/721631739307687936">2016年4月17日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja"><a href="https://twitter.com/__tai2__">@__tai2__</a> まさにその通り。一方、同じ目的達成の為に着眼点が全く違う例もある。新バージョンが出たらクリーンインストールして対応するImmutable Infrastructure。対して、ver.upされても影響されぬソフトを作り対応するPOSIX原理主義、といった具合だ</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/718895324790530048">2016年4月9日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja"><a href="https://twitter.com/__tai2__">@__tai2__</a> いい疑問だ。答えは「肯定でも否定でもない」だ。確かにシェルスクリプトによる超高速開発手法とは目的が同じ部分も多いが、POSIX原理主義は超高速(＝超短期間)には拘らぬ。理由は、超短期間開発で改修に素早く対応する事より一度作って20年持たせる事の方が優先だからだ</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/718888668455247872">2016年4月9日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>超高速開発手法も目的の内だけど20年持たせる保存性の方が優先される。</p>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja">そもそも「○○ができないからダメ」「○○の性能が劣るからダメ」という思考は、使えそうな言語やライブラリー等を探してくるだけの文化に毒された者の典型だ。POSIX原理主義の世界ではな、できない事があったら、既存コマンドや機能を組み合わせてできるように知恵を絞るのだ。少しは頭を使え！</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/712686020861386753">2016年3月23日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>POSIX原理主義では、ないものがあったら自分で作るスタイル。</p>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">POSIX原理主義は不完全だ、欠陥がある、など吠える輩が多いが、我らとて完璧でないことは知っておる。一部コマンドの収録されてないOS、trコマンドの書式問題等、色々な。だがな、それでも尚一定の理があるから主張しておるのだ。傍らでそれら不完全な点をどう補うのかを日々研究しながらな。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/712685882759729153">2016年3月23日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">所有の弊害と複数実装存在の利点を主張し素晴らしい。POSIX原理主義も同様。特定企業に翻弄されんで済むからな。ただ当日、仕様策定の遅さを欠点としてたが我らはそれをも利点と捉える。仕様変更に翻弄されんで済むからな <a href="https://twitter.com/hashtag/kbkz_tech?src=hash">#kbkz_tech</a> <a href="https://t.co/YuUL218Dcj">https://t.co/YuUL218Dcj</a></p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/712609528001368064">2016年3月23日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>POSIX原理主義は独立している。</p>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">POSIX原理主義への反響の大きさは、目先の利益優先に突き進む今のITに抱く不安の大きさを象徴しておる。プログラムは言うまでも無く、プロトコル、フォーマット、プラットフォーム等といった規格の、激しい栄枯盛衰。更にはフラッシュメモリといった数年経ったらデータが消えるストレージの台頭</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/712089293854871553">2016年3月22日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">「bashはshellshock起こし得るのでbashの拡張に頼るな。POSIX原理主義を実践せよ」といえば「その時はzshに乗り換えればいいじゃん」という者がおる。フッ、まあそれもよいわ、乗換可能なコードならな。POSIX中心主義で唱える交換可能性が担保されておる訳だからな。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/705504115908935680">2016年3月3日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja"><a href="https://twitter.com/satoh_fumiyasu">@satoh_fumiyasu</a> 先人達の著に記されてる事だ。ただPOSIXとは関係無いとだけは言っておく。POSIX準拠は可読性第一ではなく飽くまで最強の互換性の為にやっておるからな。目的が違う。こうして異なる主義思想が併存する訳だが我らはただPOSIX原理主義を布教するだけだ。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/701764944472047616">2016年2月22日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>以下、<a href="https://twitter.com/richmikan">@richmikan</a>様のツイートも</p>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja">別に高コストじゃないんだけどね。修行してUNIXを使う技を磨くだけ。すると職人の如く速く鮮やかに仕事がこなせる。「修行が高コストじゃないか」と批判する人は既に技術者ではない。だって専門家不要ってことでしょ。あなたの職業何ですか？マニュアル通りに働くコンビニのバイトも同然だよそれ。</p>
+      — RichMikan C91初日 め18a (@richmikan) <a href="https://twitter.com/richmikan/status/800563255164825600">2016年11月21日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja">結局そうやって便利なツールに頼り、まさにマニュアル通りにしか働かないコンビニのバイトのような意識で仕事してるから、日本の情報系エンジニアは安く買い叩かれるんだろうと思う。一生懸命ツールの使い方覚えて、その知識は一体何年持つのか？一方でコンピューターの構造や設計思想は一生モノの知識</p>
+      — RichMikan C91初日 め18a (@richmikan) <a href="https://twitter.com/richmikan/status/800564481717768192">2016年11月21日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">10年20年前に覚えたUNIXのテクニックが未だに役に立つのは、人の事務作業が本質的に何も変わってないから。今も昔も殆どが紙と鉛筆があればできる。ワープロや表計算ソフトなどはそれらをラクにするための道具でしかない。故に、この先10年20年後もUNIXのテクニックは役立ち続ける。</p>
+      — RichMikan C91初日 め18a (@richmikan) <a href="https://twitter.com/richmikan/status/684642634128752644">2016年1月6日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>確かに文書の形式は変わっていないのに、ツール類が変わるというのはおかしな話ですよね。</p>
+    <hr>
+    <h2>UNIX哲学</h2>
+    <p>POSIX原理主義に絡んでたびたびUNIX哲学という言葉が登場します。</p>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">我らはUNIX哲学をベースとしてPOSIX原理主義を説いている。そのUNIX哲学には「90%の解を得る」という小定理があるのだから、POSIX原理主義に完璧を求めてくることそのものがUNIX哲学をわかっておらん証拠だ。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/712913157119815680">2016年3月24日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja">.<a href="https://twitter.com/ChihiroShiiji">@ChihiroShiiji</a> <a href="https://twitter.com/torgtaitai">@torgtaitai</a> なかなか鋭いな。そうだ、その通りだ。そして我々の主義はUNIX哲学をベースにしておる。だから我々を論破し叩き潰したくば、まずUNIX哲学を理解しなければならぬ。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/712896519247044608">2016年3月24日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p><strong>POSIX原理主義はUNIX哲学がベース</strong></p>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">目の前の課題を素早く解決、或いは少しでも高性能にするため、安易に新しい言語、ライブラリ、フレームワークに手を出すが大半は数年、最悪だと1年持たぬ技術だ。それで10年後のお前達には10年分のキャリアが貯まるのか？愚かな…基礎を覚えろ。UNIX哲学を学べ。POSIX原理主義を信じよ。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/700141419269206016">2016年2月18日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>UNIX哲学を学びたければここを参考に。</p>
+    <p>(参考)
+      https://ja.wikipedia.org/wiki/UNIX%E5%93%B2%E5%AD%A6
+      https://www.amazon.co.jp/dp/4274064069/</p>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">「今使えればよし」「今高性能でなきゃ意味が無い」まったくお前達は救いようの無い程に目先の事しか見えておらんな。それで「老後のための貯蓄」などよく言うわ。POSIX原理主義の根底にはUNIX哲学の「効率よりも移植性」がある。この移植性とは未来への移植性も意味するので勘違いするなよ。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/700133689095630852">2016年2月18日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>効率よりも移植性、POSIX原理主義は交換可能性、ということは交換可能性と移植性は同じ意味なのでしょう。</p>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja">.<a href="https://twitter.com/BRAVEMANLBRID">@BRAVEMANLBRID</a> そうだ。そしてその哲学を前面に押し出しているのが恐らくシェル芸だ。だが我らはそのUNIX哲学に一つ漏れがあると考えた。それが製品の寿命だ。POSIX原理主義とは、UNIX哲学に学び、そして補完・進化させた思想。守破離というやつだ。<a href="https://twitter.com/hashtag/posixism?src=hash">#posixism</a></p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/807871760930439168">2016年12月11日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">シェルスクリプト等によるPOSIX原理主義は、乾パンプログラミング。即ち、いつでもどこでもすぐ頂ける保存食プログラムを書くために有用だ。日々繰り返される後方非互換バージョンアップでいくら泣かされても、めげずに生ものプログラムばかり作る世のプログラマ達の平和ボケは賞賛に値するな。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/700128143797911552">2016年2月18日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <hr>
+    <h2>技術についてツイート</h2>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">「コンピュータの世界の時代の流れは速い」など幻想だ。一部の競争を好む者どもがよく考えずに時代を早送りしようとしているだけだ。結果、自滅して巻き戻る。奴らにそそのかされ生産したデジタルコンテンツの果たして何%が後世にまともに残るのか。道具とは何百年かけてじっくり洗練されるのだ。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/797304850543480832">2016年11月12日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja">開発効率を上げたくば、コンピュータの仕組み、そしてコンピュータとは無縁の世の中の仕組みを学べ。開発効率向上を謳ったツールやフレームワークを探すことなど今の役にしかたたん。後者を選ぶ者は使い捨てられる。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/797272391357374464">2016年11月12日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">開発効率を上げるためのツールやフレームワーク、なぜそんなものがわざわざ登場するようになったのか。それはベンダーどもが目先のことだけ見て開発環境を無駄に高機能化・複雑化させ、そしてお前たちも踊らされたからだ。<br>
+        POSIX原理主義とはそれに抗う主義、「原理主義」の名に相応しい。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/797271199310974977">2016年11月12日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">技術を、まるで消耗品であるかのように見なしていて愚かしい。そいつはどうやらメディアの人間のようだが、そうせんと自分達が儲からんと思い込んでおるのだろう。迷惑な奴よ。技術は消費するものではない、枯れさせて、後世へ継承させていくものだ。 <a href="https://t.co/24IcgiPp2Z">https://t.co/24IcgiPp2Z</a></p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/790798641699041280">2016年10月25日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">bash信者はFlash信者と同類だ。やがて悲鳴を上げる。確かにFlashはOS・ブラウザを超えた互換性を生み、コンテンツ制作者の理想郷になった。だが1ベンダしかFlash環境を作らなかった。故に脆弱性発覚は全滅を意味し、逃げ道がない事を批判され、滅んだのだ。bash信者よ、学べ</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/772996794431123456">2016年9月6日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">技術とは、人々を、生ける者を、悩み苦しみから解放するための道具だ。技術を論破の道具に使うしか能が無く、人に憎しみを与える使い方しかできぬ奴は技術者のクズだ。我らはそういう輩を絶対に許さん。こういう輩が上長になると、無能な設計だけをし、手を動かす部下を不幸にするからな。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/713045711399424000">2016年3月24日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet" data-lang="ja">
+      <p dir="ltr" lang="ja">ソフトウェア開発者気取りの者たちよ。お前たちは単なる製造ではなく、本当に開発をしておるのか？開発とは、前人未到でどんな失敗が起こるかわからぬ物を作ることだ。つまり100%、「想定外」に見舞われる。便利なプロダクトを使うだけで考えぬ者には乗り越えられん。大人しく職業=製造業と名乗れ</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/802697353589243904">2016年11月27日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <hr>
+    <h3>まとめ</h3>
+    <p>POSIX原理主義は
+      ・交換可能性
+      ・UNIX哲学ベース
+      ・効率よりも移植性</p>
+    <p>POSIX原理主義で作成されたものは
+      ・長年動き続ける保存性
+      ・OS環境を選ばず使える可搬性
+      ・コピーするだけで動く即席性
+      の効果を得ることができる、ということでしょうか？</p>
+    <p>POSIX原理主義はUNIX哲学ベースということなので、UNIX哲学の学習は必須になると思われます。さらに言えばUnixLinuxのOSの知識もある程度必要になりますね。</p>
+    <p>以上、シェルショッカー様 POSIX原理主義 珠玉の金言集2016年度版でした。</p>
+    <hr>
+    <p><a href="http://www.adventar.org/calendars/1787">POSIX原理主義AdventCalendar</a>次の担当はBRAVEMANLBRIDさんです。BRAVEMANLBRIDさん、よろしくお願いします。</p>
+   <p><a href="https://div-jp.github.io/code/">index</a></p>
+  </body>
+</html>

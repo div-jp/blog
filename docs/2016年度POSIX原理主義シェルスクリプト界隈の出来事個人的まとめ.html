@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mystyle.css">
+	<title>2016年度POSIX原理主義(シェルスクリプト)界隈の出来事個人的まとめ</title>
+  </head>
+  <body>
+    <p><a href="https://div-jp.github.io/code/">index</a></p>
+    <h1>2016年度POSIX原理主義(シェルスクリプト)界隈の出来事個人的まとめ</h1>
+    <p>この記事はPOSIX原理主義AdventCalendarの7日目です。</p>
+    <p>私はプログラミングを書くことができないノンプログラマではありますが、今後のPOSIX原理主義の発展の役に立つのならば、と思い書きました。</p>
+    <p>最新技術も大事ですが、いま現在おきている出来事をこれから学んでいこうという後進のために記録として残してゆくのも大事なことなのかな？と思ったので、2016年のあいだに起きた出来事を個人的な視点でまとめてみました。</p>
+    <p>＜おことわり＞
+      このページの内容はすべて私個人の主観によるものなので情報が正確ではありません、ご了承下さい。また誤字脱字、不快な表現があるかと思いますが、コメントで指摘していただけると助かります。</p>
+    <h2>POSIX原理主義(シェルスクリプト)界隈での2016年の動き</h2>
+    <p>こういうまとめ記事を書くと年の瀬感がでますね。</p>
+    <h2>☆スクリプト、ライブラリ</h2>
+    <h3>・<a href="https://github.com/ShellShoccar-jpn/Parsrs/blob/master/makrj.sh">makrj.sh</a></h3>
+    <p>ファイル置き場<br>
+      <a href="https://github.com/ShellShoccar-jpn/Parsrs/blob/master/makrj.sh">https://github.com/ShellShoccar-jpn/Parsrs/blob/master/makrj.sh</a><br>
+      解説<br>
+      <a href="http://qiita.com/richmikan@github/items/0dc3330163c86b249bcd">http://qiita.com/richmikan@github/items/0dc3330163c86b249bcd</a></p>
+    <p>makrj.shは解説ページを読んでいただけるとわかるかと思いますが、JSONジェネレーターでJSONPath形式で書かれたデータを、一発でJSON形式にしてくれる超凄いスクリプト(もちろんPOSIX原理主義)、なのですがネット上での反応がイマイチで、私一人だけ歓喜しているという…とにかく1回使ってみ？と猛プッシュしたいスクリプトです。マジで本当に使ってほしい。</p>
+    <h3>・<a href="https://github.com/ShellShoccar-jpn/misc-tools/blob/master/seq">seqコマンド</a></h3>
+    <p>ファイル置き場<br>
+      <a href="https://github.com/ShellShoccar-jpn/misc-tools/blob/master/seq">https://github.com/ShellShoccar-jpn/misc-tools/blob/master/seq</a></p>
+    <p>seqコマンドはPOSIXじゃない！じゃあ作っちゃえというところからできたスクリプト。自分で作るというその発想がスゴイし、また作れちゃうのが凄い。</p>
+    <h2>☆スライド</h2>
+    <p>POSIX中心主義と情報科学教育<br>
+      <a href="http://www.slideshare.net/tomoyukimatsura/posix-59447685">http://www.slideshare.net/tomoyukimatsura/posix-59447685</a></p>
+    <p>恐怖！シェルショッカーの POSIX原理主義シェルスクリプト<br>
+      <a href="http://www.slideshare.net/ShellShoccarJpn/posix-59780910">http://www.slideshare.net/ShellShoccarJpn/posix-59780910</a><br>
+      <a href="http://live.nicovideo.jp/gate/lv256017127">歌舞伎座.tech#9「異種プログラミング言語格闘勉強会」</a>で発表されたもの</p>
+    <h2>☆Windows 10 Anniversary UpdateでBash on Ubuntu on Windowsが利用可能に</h2>
+    <p>Windows 10 Anniversary Updateが、2016年8月2日（日本時間では3日）に公開され、これによりWindows10ユーザーはインストール作業をすることなくWindows10上でBashシェルBash on Ubuntu on Windows(以下、BoW)が使えるようになりました。</p>
+    <p>BoWがつかえるようになるということは、ひと昔前のマイクロソフトの強硬な態度からすれば考えられないことです。しかしOSのシェアも下降気味ですし、きっとシェルスクリプトの存在も無視できなくなってきたのでしょう。</p>
+    <p>もしWindows10より前のバージョンで、シェルスクリプトのプログラミングがしたいとなった場合、実現する方法としては自分で仮想化環境を構築し、その上にUNIXLinuxのOSをインストールして使用するか、Cygwinなどのエミュレーション環境ソフトをインストールしてシェルスクリプトを利用するというのが一般的でした。(もっとも、そこまでしてOSがWindowsでなければならないという人は少数派でしたが)</p>
+    <p>しかし今年からWindows10をインストールすれば、BoWが標準で付いてくるようになったので、これによりUNIXLinux、Mac、Windowsの、あらゆるほぼ100%のデスクトップパソコン上でシェルスクリプトプログラミングができるようになりました。</p>
+    <p>しかしまだ問題もあります、マイクロソフト社がBoWのサービス停止してしまうかもれしれない可能性があるということです。この点は不透明で不安要素でもあります。しかし仮にサービスが終了したとしてもそのためのPOSIX原理主義ですから、もしそうなった時はあわてず&lt;-そんなこともあろうかと-&gt;と言いながら他のPCにコピー&amp;ペーストすればいいだけですね。</p>
+    <p>Windows上でシェルスクリプトが使えるという革命が起きたことにより、今後シェルスクリプトとPOSIX原理主義に対するプログラミングの需要はますます高まることになると思われます。</p>
+    <h2>☆聖典20年本発売</h2>
+    <p>聖典20年本というのは通称で、正しくは<br>
+      [「<strong>Windows/Mac/UNIXすべてで20年動くプログラムはどう書くべきか一度書けばどこでも、ずっと使えるプログラムを待ち望んでいた人々へ贈る[シェルスクリプトレシピ集]</strong> 」](https://www.amazon.co.jp/dp/4863542097/)(リンク先amazon)<br>
+      というタイトルで、略して20年本とプログラミング界隈ではよばれたりしています。</p>
+    <p>また本のカバーからの見た目から青本ともよばれたりしています。</p>
+    <p>特に、シェルスクリプトプログラミング関連の本は数あれど、その中でもPOSIX原理主義に特化した本は20年本だけ(2016年現在)で、またPOSIX原理主義提唱者みずからが記した布教本という位置づけなので、コミュニティの間では文字通り聖典とよばれたりもしています。</p>
+    <p>聖典20年本は実はBoWが登場したことによりあらたに改訂された新版で、新版になるにあたって教祖様曰く、<br>
+      「BoWがリリースされたことによってWinやMacでUNIXに縁のなかった人に向けに、初版を基に一から作り直された内容」<br>
+      ということで、<a href="http://myfuturesightforpast.blogspot.jp/2016/12/windowsmacunix20.html">本の具体的なレビューは別の方に譲る</a>として、POSIX原理主義をこれから実践する、もちろん実践している者にとってもマストバイな一冊になっております。</p>
+    <h2>☆同志、お友達が増えました</h2>
+    <p>2015年頃のPOSIX原理主義は、ネタだと宗教だと後ろ指をさされ迫害を受け、原理主義教徒たちは隠れて(?)活動を続けていましたが、それでもPOSIX原理主義教祖様の絶え間ない布教活動により、2016年にはPOSIX原理主義の思想や教義がジワジワと拡散され、次第に理解のある人たちが増え、ツイッター上にわずかですがPOSIX原理主義の小さなコミュニティが形成されるようになりました。</p>
+    <p>シェルスクリプト専用のアドベントカレンダーは以前から存在していましたが、今年はPOSIX原理主義専用のアドベントカレンダーが登場したのもコミュニティが大きくなった証拠であり、また見逃せない動きでもあります。</p>
+    <p>2017年のPOSIX原理主義はここからどうなっていくのか、大きく花開いていくのか、それともしぼんでしまうのか、どうなってしまうのか今後が楽しみでなりません。いつか大きな会場なんか借りてPOSIX原理主義勉強会とかできるようになったらいいですね。</p>
+    <h2>☆闇の動き</h2>
+    <p>こちらも見逃せない動きです。POSIX原理主義はシェルスクリプト界隈では、ここ1-2年くらいで出来たピッカピカの新参ニューカマーなのです。そして人が集まり始めれば、そのことを快く思わない人も出てくることは世の常です。</p>
+    <p>なので古からいるシェルスクリプト界、特にPOSIX分野を扱う主流派・ベテラン勢からは相当煙たがられているようで、思想の違いから対立して論戦を仕掛けられることもしばしば起こるようになりました。</p>
+    <p>論争があるということはいいことです。論戦が始まったら邪魔をせず、生暖かい目で見守りましょう。どちらが勝つかはわかりません、きっと生き残った方が勝者なのでしょう。</p>
+    <p>2017年は和解か？または全面戦争か？どうなるのか気になるところではあります。</p>
+    <p>またこの点についてシェルショッカー様は次のように述べております。</p>
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="ja">
+      <p dir="ltr" lang="ja"><a href="https://twitter.com/c191m">@c191m</a> この世は皆戦いだ。コンピュータ系のコミュニティとて、歴史を繙けば常に戦争と平和を繰り返してきた。今に始まったことではない。そして戦いの中から新たな価値が生まれることもある。破壊的イノベーションも戦争も所詮同じ。故に喧嘩は大いに結構、気の済むまでやれと思っている。</p>
+      — 秘密結社シェルショッカー日本支部 (@shellshoccarjpn) <a href="https://twitter.com/shellshoccarjpn/status/805411596012908544">2016年12月4日</a></blockquote>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>人格攻撃に終始するのではなく、技術についての有意義な議論を期待したいところです。</p>
+    <p>以上、2016年度POSIX原理主義(シェルスクリプト)界隈のトピック個人的まとめでした。</p>
+<p><a href="https://div-jp.github.io/code/">index</a></p>
+  </body>
+</html>
