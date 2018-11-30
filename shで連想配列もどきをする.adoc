@@ -1,0 +1,72 @@
+
+= shで連想配列もどきをする。
+
+
+与えられたキーから値を返す、書き込みはできない読み込みのみの連想配列をする。
+
+[source, sh]
+----
+#! /bin/sh
+
+MyData()
+{
+cat <<EOF
+$.りんご Apple
+$.ニンジン Carrot
+$.レモン[0] Lemon
+$.レモン[1].ソーダ Lemonsoda
+$.いちご Strawberry
+EOF
+}
+
+GetValue()
+{
+  MyData | grep -F "$.$1 " | cut -d' ' -f 2
+}
+
+GetValue レモン[1].ソーダ
+
+#Result
+#Lemonsoda
+----
+
+shで連想配列をしようとすると、変数名の後半部分をキーにする方法
+
+
+[source, sh]
+----
+Array_りんご=Apple
+echo ${Array_りんご}
+----
+
+が定石だけれども、データの数が多くなればなるほど、メモリを食うし読み込みが遅くなるし、そもそも日本語の変数名はできないようなので、どうにかできないか考えた結果こうなった。
+
+データ部分の形式はもちろん自由だが、あえてJSONPath-value形式にしておくことで、
+
+[source, sh]
+----
+MyData | makrj.sh
+----
+と、makrj.shに渡すことでJson形式のデータを出力させることができるのでお得。でもこれは別の話。
+
+[source, JSON]
+----
+{
+    "りんご": "Apple",
+    "ニンジン": "Carrot",
+    "レモン": [
+        "Lemon",
+        {
+            "ソーダ": "Lemonsoda"
+        }
+    ],
+    "いちご": "Strawberry"
+}
+----
+
+
+
+
+
+
+
