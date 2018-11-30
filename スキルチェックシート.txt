@@ -1,0 +1,63 @@
+フロントエンド	HTML5
+フロントエンド	CSS3
+フロントエンド	Bootstrap
+フロントエンド	JavaScript(ES6)
+フロントエンド	TypeScript
+フロントエンド	Angular
+フロントエンド	React.js
+フロントエンド	Vue.js
+フロントエンド	jQuery
+フロントエンド	D3.js
+ミドルウェア	MySQL
+ミドルウェア	Sqlite
+ミドルウェア	MongoDB
+ミドルウェア	Memcached
+ミドルウェア	NewRelic
+ミドルウェア	Apache
+ミドルウェア	Nginx
+ミドルウェア	Squid
+ミドルウェア	Docker
+ミドルウェア	Git
+ミドルウェア	Certbot
+プログラミング	Shell
+プログラミング	awk
+プログラミング	C
+プログラミング	C++
+プログラミング	JavaScript
+プログラミング	Java
+プログラミング	Python
+プログラミング	C#
+プログラミング	Golang
+プログラミング	rust
+プログラミング	Haskell
+プログラミング	PHP
+プログラミング	Node.js
+プログラミング	Perl
+プログラミング	Ruby
+プログラミング	VBA
+Virtualization	VMware Workstation
+Virtualization	VirtualBox
+Virtualization	Vagrant
+エディタ	Vim
+エディタ	PHPStorm
+エディタ	GoLand
+エディタ	Jupyter notebook
+IaaS	AWS
+IaaS	GCP
+IaaS	Sakura
+IaaS	Conoha
+SaaS	Twilio
+SaaS	Sendgrid
+SaaS	PAY.JP
+未分類	Excel
+未分類	CAD
+未分類	Delphi
+未分類	デザインパターン
+未分類	競技プログラミング
+未分類	機械学習
+資格	基本情報
+資格	応用情報
+読書済み	徳丸浩のWebセキュリティ教室
+
+
+
